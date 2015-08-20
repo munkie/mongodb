@@ -3,6 +3,8 @@
 namespace Doctrine\MongoDB\Tests;
 
 use Doctrine\Common\EventManager;
+use Doctrine\MongoDB\Collection;
+use Doctrine\MongoDB\Database;
 use Doctrine\MongoDB\Events;
 use Doctrine\MongoDB\Event\AggregateEventArgs;
 use Doctrine\MongoDB\Event\DistinctEventArgs;
@@ -16,8 +18,19 @@ use Doctrine\MongoDB\Event\UpdateEventArgs;
 
 class CollectionEventsTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var Database|\PHPUnit_Framework_MockObject_MockObject
+     */
     private $database;
+
+    /**
+     * @var EventManager|\PHPUnit_Framework_MockObject_MockObject
+     */
     private $eventManager;
+
+    /**
+     * @var \MongoCollection|\PHPUnit_Framework_MockObject_MockObject
+     */
     private $mongoCollection;
 
     public function setUp()
@@ -313,6 +326,10 @@ class CollectionEventsTest extends \PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     * @param array $methods
+     * @return Collection|\PHPUnit_Framework_MockObject_MockObject
+     */
     private function getMockCollection(array $methods)
     {
         $collection = $this->getMockBuilder('Doctrine\MongoDB\Collection')
@@ -329,6 +346,9 @@ class CollectionEventsTest extends \PHPUnit_Framework_TestCase
         return $collection;
     }
 
+    /**
+     * @return Database|\PHPUnit_Framework_MockObject_MockObject
+     */
     private function getMockDatabase()
     {
         return $this->getMockBuilder('Doctrine\MongoDB\Database')
@@ -336,6 +356,9 @@ class CollectionEventsTest extends \PHPUnit_Framework_TestCase
             ->getMock();
     }
 
+    /**
+     * @return EventManager|\PHPUnit_Framework_MockObject_MockObject
+     */
     private function getMockEventManager()
     {
         return $this->getMockBuilder('Doctrine\Common\EventManager')
@@ -343,6 +366,9 @@ class CollectionEventsTest extends \PHPUnit_Framework_TestCase
             ->getMock();
     }
 
+    /**
+     * @return \MongoCollection|\PHPUnit_Framework_MockObject_MockObject
+     */
     private function getMockMongoCollection()
     {
         return $this->getMockBuilder('MongoCollection')

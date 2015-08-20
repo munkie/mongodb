@@ -2,7 +2,6 @@
 namespace Doctrine\MongoDB\Tests\Query;
 
 use Doctrine\MongoDB\Query\Query;
-use Doctrine\MongoDB\Tests\Constraint\ArrayHasKeyAndValue;
 
 class QueryTest extends \PHPUnit_Framework_TestCase
 {
@@ -287,7 +286,7 @@ class QueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \Doctrine\MongoDB\Collection
+     * @return \Doctrine\MongoDB\Collection|\PHPUnit_Framework_MockObject_MockObject
      */
     private function getMockCollection()
     {
@@ -297,7 +296,7 @@ class QueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \Doctrine\MongoDB\Cursor
+     * @return \Doctrine\MongoDB\Cursor|\PHPUnit_Framework_MockObject_MockObject
      */
     private function getMockCursor()
     {

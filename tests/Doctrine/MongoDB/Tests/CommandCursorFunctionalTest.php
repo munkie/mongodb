@@ -2,9 +2,18 @@
 
 namespace Doctrine\MongoDB\Tests;
 
+use Doctrine\MongoDB\Collection;
+
 class CommandCursorFunctionalTest extends BaseTest
 {
+    /**
+     * @var Collection
+     */
     private $collection;
+
+    /**
+     * @var array
+     */
     private $docs;
 
     public function setUp()

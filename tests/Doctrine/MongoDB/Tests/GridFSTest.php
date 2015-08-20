@@ -21,6 +21,7 @@ class GridFSTest extends BaseTest
         $this->assertTrue(isset($document['_id']));
         $this->assertEquals('bar', $document['foo']);
 
+        /* @var GridFSFile $file */
         $file = $document['file'];
         $this->assertInstanceOf('Doctrine\MongoDB\GridFSFile', $file);
         $this->assertFalse($file->isDirty());

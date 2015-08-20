@@ -8,8 +8,14 @@ use Doctrine\MongoDB\Connection;
 
 abstract class BaseTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @var string
+     */
     protected static $dbName = 'doctrine_mongodb';
 
+    /**
+     * @var Connection
+     */
     protected $conn;
 
     public function setUp()

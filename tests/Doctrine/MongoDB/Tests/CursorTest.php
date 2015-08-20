@@ -5,12 +5,17 @@ namespace Doctrine\MongoDB\Tests;
 use Doctrine\MongoDB\Collection;
 use Doctrine\MongoDB\Connection;
 use Doctrine\MongoDB\Cursor;
+use Doctrine\MongoDB\CursorInterface;
 
 class CursorTest extends BaseTest
 {
     private $doc1;
     private $doc2;
     private $doc3;
+
+    /**
+     * @var CursorInterface
+     */
     private $cursor;
 
     public function setUp()
@@ -301,7 +306,8 @@ class CursorTest extends BaseTest
 
         $self = $this;
 
-        $setCursorExpectations = function($mongoCursor) use ($self) {
+        $setCursorExpectations = function(\MongoCursor $mongoCursor) use ($self) {
+            /* @var \MongoCursor|\PHPUnit_Framework_MockObject_MockObject $mongoCursor*/
             $mongoCursor->expects($self->once())
                 ->method('hint')
                 ->with(array('x' => 1));

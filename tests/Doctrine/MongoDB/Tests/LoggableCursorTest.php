@@ -2,8 +2,6 @@
 
 namespace Doctrine\MongoDB\Tests;
 
-use Doctrine\MongoDB\LoggableCursor;
-
 class LoggableCursorTest extends BaseTest
 {
     /**

@@ -203,7 +203,7 @@ class EagerCursorTest extends BaseTest
     }
 
     /**
-     * @return \Doctrine\MongoDB\Cursor
+     * @return \Doctrine\MongoDB\Cursor|\PHPUnit_Framework_MockObject_MockObject
      */
     private function getMockCursor()
     {
