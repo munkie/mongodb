@@ -205,6 +205,8 @@ class Database
      * Wrapper method for MongoDB::execute().
      *
      * @see http://php.net/manual/en/mongodb.execute.php
+     * @param \MongoCode|string $code
+     * @param array $args
      * @return array
      */
     public function execute($code, array $args = array())
@@ -427,7 +429,7 @@ class Database
      * Wrapper method for MongoDB::listCollections().
      *
      * @see http://php.net/manual/en/mongodb.listcollections.php
-     * @return array
+     * @return array|\MongoCollection[]
      */
     public function listCollections()
     {
@@ -591,6 +593,7 @@ class Database
      *
      * @param \Closure $retry
      * @return mixed
+     * @throws \MongoException
      */
     protected function retry(\Closure $retry)
     {

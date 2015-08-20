@@ -426,6 +426,7 @@ class Connection
      *
      * @param \Closure $retry
      * @return mixed
+     * @throws \MongoException
      */
     protected function retry(\Closure $retry)
     {

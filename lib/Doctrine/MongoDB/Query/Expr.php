@@ -1093,6 +1093,7 @@ class Expr
     {
         $fields = is_array($fieldName) ? $fieldName : array($fieldName => $order);
 
+        $sort = array();
         foreach ($fields as $fieldName => $order) {
             if (is_string($order)) {
                 $order = strtolower($order) === 'asc' ? 1 : -1;

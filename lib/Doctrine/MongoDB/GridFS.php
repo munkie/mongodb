@@ -91,7 +91,6 @@ class GridFS extends Collection
         }
 
         $document = array_merge(array('_id' => $id), $document);
-        $gridFsFile = $this->mongoCollection->get($id);
 
         // TODO: Consider throwing exception if file cannot be fetched
         $file->setMongoGridFSFile($this->mongoCollection->get($id));
@@ -179,6 +178,7 @@ class GridFS extends Collection
         /* If the file is dirty (i.e. it must be persisted), delegate to the
          * storeFile() method. Otherwise, perform a basic insertion.
          */
+        /* @var GridFSFile $file */
         $file = $a['file']; // instanceof GridFSFile
         unset($a['file']);
 
@@ -220,6 +220,7 @@ class GridFS extends Collection
      */
     protected function doUpdate(array $query, array $newObj, array $options = array())
     {
+        /* @var GridFSFile|null $file */
         $file = isset($newObj['$set']['file']) ? $newObj['$set']['file'] : null;
         unset($newObj['$set']['file']);
 

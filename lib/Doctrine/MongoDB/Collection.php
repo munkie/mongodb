@@ -105,7 +105,7 @@ class Collection
      * @param array $pipeline Array of pipeline operators, or the first operator
      * @param array $options  Command options (if $pipeline was an array of pipeline operators)
      * @param array $op,...   Additional operators (if $pipeline was the first)
-     * @return Iterator
+     * @return ArrayIterator
      * @throws ResultException if the command fails
      */
     public function aggregate(array $pipeline, array $options = array() /* , array $op, ... */)
@@ -847,7 +847,7 @@ class Collection
      * Wrapper method for MongoCollection::validate().
      *
      * @see http://php.net/manual/en/mongocollection.validate.php
-     * @param string $scanData
+     * @param boolean $scanData
      * @return array
      */
     public function validate($scanData = false)
@@ -884,7 +884,7 @@ class Collection
      * @see Collection::aggregate()
      * @param array $pipeline
      * @param array $options
-     * @return Iterator
+     * @return ArrayIterator
      */
     protected function doAggregate(array $pipeline, array $options = array())
     {
@@ -1413,6 +1413,7 @@ class Collection
      *
      * @param \Closure $retry
      * @return mixed
+     * @throws \MongoException
      */
     protected function retry(\Closure $retry)
     {

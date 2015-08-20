@@ -250,6 +250,8 @@ class CommandCursor implements Iterator
      *
      * @param \Closure $retry
      * @return mixed
+     * @throws \MongoCursorException
+     * @throws \MongoConnectionException
      */
     protected function retry(\Closure $retry)
     {

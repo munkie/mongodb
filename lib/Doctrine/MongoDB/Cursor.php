@@ -716,6 +716,8 @@ class Cursor implements CursorInterface
      * @param \Closure $retry
      * @param boolean $recreate
      * @return mixed
+     * @throws \MongoCursorException
+     * @throws \MongoConnectionException
      */
     protected function retry(\Closure $retry, $recreate = false)
     {

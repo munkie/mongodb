@@ -19,6 +19,7 @@
 
 namespace Doctrine\MongoDB\Query;
 
+use Doctrine\MongoDB\ArrayIterator;
 use Doctrine\MongoDB\Collection;
 use Doctrine\MongoDB\Cursor;
 use Doctrine\MongoDB\CursorInterface;
@@ -155,7 +156,7 @@ class Query implements IteratorAggregate
      * on the driver's write concern. Queries and some mapReduce commands will
      * return a CursorInterface.
      *
-     * @return mixed
+     * @return CursorInterface|ArrayIterator|array|boolean|null
      */
     public function execute()
     {

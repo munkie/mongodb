@@ -38,6 +38,7 @@ class AggregateEventArgs extends BaseEventArgs
      *
      * @param object $invoker
      * @param array  $pipeline
+     * @param array  $options
      */
     public function __construct($invoker, array $pipeline, array $options = array())
     {
